@@ -1,3 +1,17 @@
+
+
+// UNUSED VARIABLES 
+
+//		int dollarsPaid = 0;
+//		int centsPaid = 0;
+//		int dollarsCost = 0;
+//		int centsCost = 0;
+//		double coin25 = 0;
+//		double coin10 = .10;
+//		double coin5 = .05;
+//		double coin1 = .01;
+
+
 package makechange;
 
 import java.util.Scanner;
@@ -6,80 +20,155 @@ public class MakeChange {
 
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
-		double price = 0;
-		double paid = 0;
-		int bill20 = 20;
-		int bill10 = 10;
-		int bill5 = 5;
-		int bill1 = 1;
-		int coin25 = 25;
-		int coin10 = 10;
-		int coin5 = 5;
-		int coin1 = 1;
-		int change = (int) ((paid * 100) - (price * 100));
+		double price;
+		double paid;
+		double change = paid - price;
 		
-		int twenty = change % bill20;
-		int ten = change % bill10;
-		int five = change % bill5;
-		int one = change % bill1;
-		int quart = change % coin25;
-		int dime = change % coin10;
-		int nickle = change % coin5;
-		int penn = change % coin1;
-		double finalChange = ((double) change )/ 100;
-		
+
 		System.out.print("Hello, enter the price of the item: ");
 		price = kb.nextDouble();
 		System.out.print("How much money did you pay with?: ");
 		paid = kb.nextDouble();
 		
+	
 		
+		 
+		 
 		if(paid < price) {
 			System.out.println("That is not enough, please try again.");
-			if (paid == price) {
+		}
+			else if (paid == price) {
 			System.out.println("Thank you for using exact change! ");
-		
-		if(paid > price) {
-			System.out.println("Please hold on and I will get your change: " + finalChange);
-			
-		if(bill20 == (change - twenty)) {
-			System.out.println("You will get a $20 back. ");
-				}
-		if(paid >= ten && paid != twenty) {
-			System.out.println("You will get a $10 back.");
-		}
-		if(paid >= five && paid != ten) {
-			System.out.println("You get a $5 back.");
-		}
-		if(paid >= one && paid != five) {
-			System.out.println("You will get a $1 back.");
-		}
-		if(one >= quart ) {
-			int q = one -quart;
-			q = q / coin25;
-			System.out.println("You will get " +  q + "quarter back");
-		}
-		if(quart >= dime) {
-			int d = quart - dime;
-			d = d /coin10;
-			System.out.println("You will get " + d + "dimes back");
-		}
-		if(dime >= nickle) {
-			int n = dime - nickle;
-			n = n /coin5;
-			System.out.println("You will get " + n + "nickles back");
-		}
-		if(penn >= dime) {
-			int p = penn - dime;
-			p = p / coin1;
-			System.out.println("You will get " + p + "pennies back");
-		}
-		}
-		kb.close();
-		
+			}
+			else if (paid > price) {
+				Calculate(args);
+				kb.close();
 				
 			}
-		}
+				
 	}
+		
 
-}
+				
+				
+				
+				
+				
+				
+				
+	public static void Calculate(String[] args){	
+				
+			double change = 0;
+			int twenty = 0;
+			int ten = 0;
+			int five = 0;
+			int one = 0;
+			int quart = 0;
+			int dime = 0;
+			int nickel = 0;
+			int penn = 0;
+		
+			int diffChange = 0;
+			
+			change = change * 100;
+
+			
+			diffChange = (int) change;
+				
+				
+				twenty =  diffChange / 2000;
+				diffChange = diffChange % 2000;
+		
+		
+				ten =  diffChange  / 1000;
+				diffChange = diffChange % 1000;
+		
+		
+				five =  diffChange  / 500;
+				diffChange = diffChange % 500;
+		
+		
+				one =  diffChange / 100;
+				diffChange = diffChange % 100;
+		
+				quart =  diffChange / 25;
+				diffChange = diffChange % 25;
+		
+				dime =  diffChange  / 10;
+				diffChange = diffChange % 10;
+		
+			
+				nickel =  diffChange / 5;
+				diffChange = diffChange % 5;
+			
+				penn =  diffChange;
+			System.out.println("Your change is: ");
+		
+		
+				
+			if (twenty>1) {
+				System.out.print(twenty + " twenty dollar bills, ");
+			}
+			else if (twenty == 1) {
+				System.out.print(twenty + " twenty dollar bill, ");
+			}
+			else if (twenty == 0 ) {
+			}
+			if (ten>1) {
+				System.out.print(ten + " ten dollar bills, ");
+			}
+			else if (ten == 1) {
+				System.out.print(ten + " ten dollar bill, ");
+			}
+			else if (ten == 0 ) {
+			}
+			if (five > 1) {
+				System.out.print(five + " five dollar bills, ");
+			}
+			else if (five == 1) {
+				System.out.print(five + " five dollar bill, ");
+			}
+			else if (five ==0) {
+			}
+			if (one > 1) {
+				System.out.print(one + " one dollar bills, ");
+			}
+			else if (one == 1) {
+				System.out.print(one + " one dollar bill, ");
+			}
+			else if (one == 0){
+			}
+			if (quart > 1) {
+				System.out.print(quart + " quarters, ");
+			}
+			else if (quart == 1) {
+				System.out.print(quart + " quarter, ");
+			}
+			else if (quart == 0){
+			}
+			if (dime > 1) {
+				System.out.print(dime + " dimes, ");
+			}
+			else if (dime == 1) {
+				System.out.print(dime + " dime, ");
+			}
+			else if (dime == 0){
+			}
+			if (nickel > 1) {
+				System.out.print(nickel + " nickels, ");
+			}
+			else if (nickel == 1) {
+				System.out.print(nickel + " nickel, ");
+			}
+			else if (nickel == 0){
+			}
+			if (penn > 1) {
+				System.out.print(penn + " pennies.");
+			}
+			else if (penn == 1) {
+				System.out.print(penn + " penny.");
+			}
+			else if (penn == 0){
+			}
+		}
+		}

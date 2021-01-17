@@ -20,9 +20,10 @@ public class MakeChange {
 
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
-		double price;
-		double paid;
-		double change = paid - price;
+		double price= 0;
+		double paid = 0;
+		double change = 0;
+
 		
 
 		System.out.print("Hello, enter the price of the item: ");
@@ -41,13 +42,12 @@ public class MakeChange {
 			System.out.println("Thank you for using exact change! ");
 			}
 			else if (paid > price) {
-				Calculate(args);
+				
 				kb.close();
 				
 			}
 				
-	}
-		
+	
 
 				
 				
@@ -56,9 +56,9 @@ public class MakeChange {
 				
 				
 				
-	public static void Calculate(String[] args){	
-				
-			double change = 0;
+	
+	
+			
 			int twenty = 0;
 			int ten = 0;
 			int five = 0;
@@ -67,12 +67,13 @@ public class MakeChange {
 			int dime = 0;
 			int nickel = 0;
 			int penn = 0;
-		
-			int diffChange = 0;
+			change = paid - price;
+			
+			int diffChange = 0;{
 			
 			change = change * 100;
 
-			
+			change = Math.round(change);
 			diffChange = (int) change;
 				
 				
@@ -172,3 +173,4 @@ public class MakeChange {
 			}
 		}
 		}
+}
